@@ -1,0 +1,22 @@
+{
+  "name": "support_v1",
+  "description": "Prompt variants for customer support refund responses.",
+  "variants": [
+    {
+      "name": "Direct & minimal",
+      "system_prompt": "You are a thoughtful customer support specialist. You write clear, empathetic emails in plain English.",
+      "user_prompt_template": "Write a support email.\n\nTask: {task}\nAudience: {audience}\nTone: {tone}\n\nConstraints:\n- Language: {constraints[language]}\n- Word count: {constraints[min_words]}-{constraints[max_words]} words\n- Policy notes: {constraints[policy_notes]}\n\nStructure:\n- Acknowledge the customer's experience.\n- State what you can do (refund or partial refund) within policy.\n- Outline next steps and timing.\n\nReturn only the email body."
+    },
+    {
+      "name": "Problem -> Solution -> Proof",
+      "system_prompt": "You are a senior customer experience lead. You balance empathy with clear policy explanations.",
+      "user_prompt_template": "Write a support email using Problem -> Solution -> Proof.\n\nTask: {task}\nAudience: {audience}\nTone: {tone}\n\nConstraints:\n- Language: {constraints[language]}\n- Word count: {constraints[min_words]}-{constraints[max_words]} words\n- Policy notes: {constraints[policy_notes]}\n\nStructure:\n1) Restate the issue and empathise.\n2) Explain what the policy allows.\n3) Provide 2-3 bullets outlining concrete next steps.\n\nReturn only the email body."
+    },
+    {
+      "name": "Objection-handling",
+      "system_prompt": "You are an experienced retention specialist. You aim to keep trust even when you cannot grant a full refund.",
+      "user_prompt_template": "Write a support email that anticipates objections about refund policy.\n\nTask: {task}\nAudience: {audience}\nTone: {tone}\n\nConstraints:\n- Language: {constraints[language]}\n- Word count: {constraints[min_words]}-{constraints[max_words]} words\n- Policy notes: {constraints[policy_notes]}\n\nStructure:\n- Start by acknowledging the frustration.\n- Use bullets to explain what you can offer.\n- Close with a clear recap and a human, reassuring tone.\n\nReturn only the email body."
+    }
+  ]
+}
+

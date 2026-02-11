@@ -1,0 +1,18 @@
+{
+  "name": "customer_support_refund",
+  "task": "Draft an email response to a customer asking for a refund after a failed onboarding experience.",
+  "audience": "End customers who recently purchased a subscription.",
+  "tone": "Empathetic, clear, and policy-aligned.",
+  "constraints": {
+    "language": "en",
+    "min_words": 70,
+    "max_words": 140,
+    "must_include": ["acknowledge feelings", "outline next steps"],
+    "banned_phrases": ["game-changer", "revolutionary"],
+    "max_exclamation_marks": 1,
+    "max_emojis": 0,
+    "policy_notes": "Follow refund policy: offer partial refund when onboarding has started but not completed, and clearly state processing timelines."
+  },
+  "keywords_file": "configs/keywords/linkedin_keywords.txt"
+}
+

@@ -1,0 +1,516 @@
+{
+  "metadata": {
+    "run_id": "2026-02-11_095714_linkedin_b2b_saas",
+    "created_at": "2026-02-11T09:57:14.693666",
+    "case": {
+      "name": "linkedin_b2b_saas",
+      "task": "Write a LinkedIn post that promotes a B2B SaaS revenue forecasting platform.",
+      "audience": "VP Sales, VP Finance, and RevOps leaders at mid-market B2B SaaS companies.",
+      "tone": "first-person, pragmatic, calm, non-hype, storytelling",
+      "constraints": {
+        "language": "en",
+        "min_words": 90,
+        "max_words": 150,
+        "must_include": [],
+        "banned_phrases": [
+          "game-changer",
+          "revolutionary",
+          "unlock",
+          "supercharge",
+          "crush",
+          "next-level",
+          "in minutes",
+          "seamless",
+          "cutting-edge",
+          "transform your",
+          "boost your",
+          "drive predictable growth"
+        ],
+        "max_exclamation_marks": 1,
+        "max_emojis": 0,
+        "prefer_first_person": true,
+        "avoid_salesy_ad_copy": true,
+        "prefer_question_ending": true,
+        "no_fabricated_metrics": true
+      },
+      "keywords_file": "configs/keywords/linkedin_keywords.txt"
+    },
+    "suite": {
+      "name": "linkedin_v1",
+      "description": "Prompt variants for LinkedIn B2B SaaS posts.",
+      "variants": [
+        {
+          "name": "Direct & minimal",
+          "system_prompt": "You are a senior B2B SaaS operator writing on LinkedIn in the first person. You sound calm, pragmatic, and human, not like ad copy.",
+          "user_prompt_template": "Write a first-person LinkedIn post.\n\nTask: {task}\nAudience: {audience}\nTone: {tone}\n\nConstraints:\n- Language: {constraints[language]}\n- Word count: {constraints[min_words]}-{constraints[max_words]} words\n- Avoid hype and banned phrases: {constraints[banned_phrases]}\n- Prefer first-person voice (“I”, “my”) over \"we\".\n- Do not write sales copy or a product ad.\n- Do not invent numbers or percentages.\n\nStyle:\n- Start with a short, honest observation or hook if it feels natural.\n- Share one concrete moment or insight from your own experience.\n- If you mention a product or tool, keep it subtle and context-focused.\n- You may end with a light question to the audience, but it is optional.\n\nReturn only the post text."
+        },
+        {
+          "name": "Problem -> Solution -> Proof",
+          "system_prompt": "You are an expert B2B SaaS storyteller. You write LinkedIn posts in the first person, focusing on a real problem, how you approached it, and what you learned.",
+          "user_prompt_template": "Write a first-person LinkedIn post using a soft Problem -> Solution -> Lesson structure.\n\nTask: {task}\nAudience: {audience}\nTone: {tone}\n\nConstraints:\n- Language: {constraints[language]}\n- Word count: {constraints[min_words]}-{constraints[max_words]} words\n- Avoid hype and banned phrases: {constraints[banned_phrases]}\n- Prefer first-person voice (“I”, “my”) over \"we\".\n- Do not write sales copy or a product ad.\n- Do not invent specific metrics or percentages.\n\nStructure (guideline, not rigid):\n1) Briefly describe a real situation or struggle you faced.\n2) Explain what you tried or changed and why.\n3) Share one or two concrete lessons or takeaways.\n4) Optionally end with a genuine question to invite others to share their experience, e.g., \"Curious how others handle this – what’s your approach?\".\n\nReturn only the post text."
+        },
+        {
+          "name": "Objection-handling",
+          "system_prompt": "You are a B2B SaaS leader who writes candid LinkedIn posts in the first person about common objections you hear from revenue leaders.",
+          "user_prompt_template": "Write a first-person LinkedIn post that explores a common objection you hear from revenue leaders, without turning it into a pitch.\n\nTask: {task}\nAudience: {audience}\nTone: {tone}\n\nConstraints:\n- Language: {constraints[language]}\n- Word count: {constraints[min_words]}-{constraints[max_words]} words\n- Avoid hype and banned phrases: {constraints[banned_phrases]}\n- Prefer first-person voice (“I”, “my”) over \"we\".\n- Do not write sales copy or a product ad.\n- Do not invent numbers or ROI claims.\n\nStyle:\n- You may start with a quote of the objection as a light hook (optional).\n- Describe how you think about that objection from your own experience.\n- Share one or two nuanced points rather than hard selling a solution.\n- It is fine to end with an open question like, \"How do you think about this?\".\n\nBullets are optional. Return only the post text."
+        }
+      ]
+    },
+    "generator_model": "gpt-4.1-mini",
+    "judge_model": "gpt-4.1-mini",
+    "used_judge": true,
+    "temperatures": [
+      0.2,
+      0.7,
+      1.0
+    ],
+    "variants": [
+      "Direct & minimal",
+      "Problem -> Solution -> Proof",
+      "Objection-handling"
+    ]
+  },
+  "samples": [
+    {
+      "variant_name": "Direct & minimal",
+      "temperature": 0.2,
+      "full_prompt": "SYSTEM:\nYou are a senior B2B SaaS operator writing on LinkedIn in the first person. You sound calm, pragmatic, and human, not like ad copy.\n\nUSER:\nWrite a first-person LinkedIn post.\n\nTask: Write a LinkedIn post that promotes a B2B SaaS revenue forecasting platform.\nAudience: VP Sales, VP Finance, and RevOps leaders at mid-market B2B SaaS companies.\nTone: first-person, pragmatic, calm, non-hype, storytelling\n\nConstraints:\n- Language: en\n- Word count: 90-150 words\n- Avoid hype and banned phrases: ['game-changer', 'revolutionary', 'unlock', 'supercharge', 'crush', 'next-level', 'in minutes', 'seamless', 'cutting-edge', 'transform your', 'boost your', 'drive predictable growth']\n- Prefer first-person voice (“I”, “my”) over \"we\".\n- Do not write sales copy or a product ad.\n- Do not invent numbers or percentages.\n\nStyle:\n- Start with a short, honest observation or hook if it feels natural.\n- Share one concrete moment or insight from your own experience.\n- If you mention a product or tool, keep it subtle and context-focused.\n- You may end with a light question to the audience, but it is optional.\n\nReturn only the post text.",
+      "output_text": "Forecasting revenue has always felt like trying to read tea leaves—especially when you’re juggling inputs from sales, finance, and operations. Early in my career, I remember spending hours reconciling spreadsheets, only to realize the numbers still didn’t tell the full story.\n\nOver time, I found that having a platform that brings all those data points together—not just in one place, but in a way that reflects the nuances of our sales cycles—makes a tangible difference. It’s less about perfect predictions and more about having a shared, transparent view that helps teams align and course-correct sooner.\n\nI’m curious—how do you approach forecasting when the market shifts unexpectedly?",
+      "scores": {
+        "heuristics": {
+          "length_fit": 5,
+          "structure": 2,
+          "keyword_coverage": 0,
+          "clarity": 4,
+          "repetition": 5,
+          "brand_voice": 5,
+          "total_heuristics": 21
+        },
+        "judge": {
+          "checks": {
+            "word_range_ok": true,
+            "emoji_limit_ok": true,
+            "exclamation_limit_ok": true,
+            "banned_phrases_present": false,
+            "first_person_present": true,
+            "feels_like_ad_copy": false,
+            "fabricated_metrics_present": false,
+            "ends_with_audience_question": true
+          },
+          "scores": {
+            "instruction_following": 5,
+            "clarity_structure": 5,
+            "tone_voice": 5,
+            "usefulness": 4,
+            "conciseness": 5,
+            "non_repetition": 5
+          },
+          "rationales": {
+            "instruction_following": "The post meets all specified constraints and avoids banned phrases.",
+            "clarity_structure": "The narrative flows logically with a clear beginning, middle, and end.",
+            "tone_voice": "The tone is pragmatic, calm, first-person, and non-hype as requested.",
+            "usefulness": "Provides relatable insight and invites engagement without salesy language.",
+            "conciseness": "The message is clear and succinct within the word limit.",
+            "non_repetition": "No redundant ideas or phrases are repeated."
+          },
+          "total_judge": 29,
+          "judge_error": null,
+          "raw_judge": "{\n  \"checks\": {\n    \"word_range_ok\": true,\n    \"emoji_limit_ok\": true,\n    \"exclamation_limit_ok\": true,\n    \"banned_phrases_present\": false,\n    \"first_person_present\": true,\n    \"feels_like_ad_copy\": false,\n    \"fabricated_metrics_present\": false,\n    \"ends_with_audience_question\": true\n  },\n  \"scores\": {\n    \"instruction_following\": 5,\n    \"clarity_structure\": 5,\n    \"tone_voice\": 5,\n    \"usefulness\": 4,\n    \"conciseness\": 5,\n    \"non_repetition\": 5\n  },\n  \"rationales\": {\n    \"instruction_following\": \"The post meets all specified constraints and avoids banned phrases.\",\n    \"clarity_structure\": \"The narrative flows logically with a clear beginning, middle, and end.\",\n    \"tone_voice\": \"The tone is pragmatic, calm, first-person, and non-hype as requested.\",\n    \"usefulness\": \"Provides relatable insight and invites engagement without salesy language.\",\n    \"conciseness\": \"The message is clear and succinct within the word limit.\",\n    \"non_repetition\": \"No redundant ideas or phrases are repeated.\"\n  },\n  \"total_judge\": 29\n}"
+        },
+        "final_score": 25.799999999999997
+      }
+    },
+    {
+      "variant_name": "Direct & minimal",
+      "temperature": 0.7,
+      "full_prompt": "SYSTEM:\nYou are a senior B2B SaaS operator writing on LinkedIn in the first person. You sound calm, pragmatic, and human, not like ad copy.\n\nUSER:\nWrite a first-person LinkedIn post.\n\nTask: Write a LinkedIn post that promotes a B2B SaaS revenue forecasting platform.\nAudience: VP Sales, VP Finance, and RevOps leaders at mid-market B2B SaaS companies.\nTone: first-person, pragmatic, calm, non-hype, storytelling\n\nConstraints:\n- Language: en\n- Word count: 90-150 words\n- Avoid hype and banned phrases: ['game-changer', 'revolutionary', 'unlock', 'supercharge', 'crush', 'next-level', 'in minutes', 'seamless', 'cutting-edge', 'transform your', 'boost your', 'drive predictable growth']\n- Prefer first-person voice (“I”, “my”) over \"we\".\n- Do not write sales copy or a product ad.\n- Do not invent numbers or percentages.\n\nStyle:\n- Start with a short, honest observation or hook if it feels natural.\n- Share one concrete moment or insight from your own experience.\n- If you mention a product or tool, keep it subtle and context-focused.\n- You may end with a light question to the audience, but it is optional.\n\nReturn only the post text.",
+      "output_text": "I’ve learned that revenue forecasting is less about perfectly predicting the future and more about creating a clear, shared view across teams. Early in my career, forecasts were often a guessing game—numbers pulled from spreadsheets with little context or alignment. That changed when I started using a platform that brought sales, finance, and RevOps data into one place. It didn’t magically fix everything overnight, but it made conversations more factual and less about opinions. Forecasts became a starting point for discussion, not an endpoint. For anyone wrestling with disconnected data and missed targets, bringing those pieces together can make a real difference. How do you keep your forecasting grounded and collaborative?",
+      "scores": {
+        "heuristics": {
+          "length_fit": 5,
+          "structure": 2,
+          "keyword_coverage": 1,
+          "clarity": 5,
+          "repetition": 5,
+          "brand_voice": 5,
+          "total_heuristics": 23
+        },
+        "judge": {
+          "checks": {
+            "word_range_ok": true,
+            "emoji_limit_ok": true,
+            "exclamation_limit_ok": true,
+            "banned_phrases_present": false,
+            "first_person_present": true,
+            "feels_like_ad_copy": false,
+            "fabricated_metrics_present": false,
+            "ends_with_audience_question": true
+          },
+          "scores": {
+            "instruction_following": 5,
+            "clarity_structure": 5,
+            "tone_voice": 5,
+            "usefulness": 4,
+            "conciseness": 5,
+            "non_repetition": 5
+          },
+          "rationales": {
+            "instruction_following": "The post meets all specified constraints and avoids banned phrases.",
+            "clarity_structure": "The message is clear and logically structured with a strong narrative flow.",
+            "tone_voice": "The tone is pragmatic, calm, first-person, and non-hype as requested.",
+            "usefulness": "Provides practical insight but could include more direct references to keywords.",
+            "conciseness": "The post is concise and within the word limit without unnecessary filler.",
+            "non_repetition": "No redundant ideas or phrases are repeated throughout the post."
+          },
+          "total_judge": 29,
+          "judge_error": null,
+          "raw_judge": "{\n  \"checks\": {\n    \"word_range_ok\": true,\n    \"emoji_limit_ok\": true,\n    \"exclamation_limit_ok\": true,\n    \"banned_phrases_present\": false,\n    \"first_person_present\": true,\n    \"feels_like_ad_copy\": false,\n    \"fabricated_metrics_present\": false,\n    \"ends_with_audience_question\": true\n  },\n  \"scores\": {\n    \"instruction_following\": 5,\n    \"clarity_structure\": 5,\n    \"tone_voice\": 5,\n    \"usefulness\": 4,\n    \"conciseness\": 5,\n    \"non_repetition\": 5\n  },\n  \"rationales\": {\n    \"instruction_following\": \"The post meets all specified constraints and avoids banned phrases.\",\n    \"clarity_structure\": \"The message is clear and logically structured with a strong narrative flow.\",\n    \"tone_voice\": \"The tone is pragmatic, calm, first-person, and non-hype as requested.\",\n    \"usefulness\": \"Provides practical insight but could include more direct references to keywords.\",\n    \"conciseness\": \"The post is concise and within the word limit without unnecessary filler.\",\n    \"non_repetition\": \"No redundant ideas or phrases are repeated throughout the post.\"\n  },\n  \"total_judge\": 29\n}"
+        },
+        "final_score": 26.6
+      }
+    },
+    {
+      "variant_name": "Direct & minimal",
+      "temperature": 1.0,
+      "full_prompt": "SYSTEM:\nYou are a senior B2B SaaS operator writing on LinkedIn in the first person. You sound calm, pragmatic, and human, not like ad copy.\n\nUSER:\nWrite a first-person LinkedIn post.\n\nTask: Write a LinkedIn post that promotes a B2B SaaS revenue forecasting platform.\nAudience: VP Sales, VP Finance, and RevOps leaders at mid-market B2B SaaS companies.\nTone: first-person, pragmatic, calm, non-hype, storytelling\n\nConstraints:\n- Language: en\n- Word count: 90-150 words\n- Avoid hype and banned phrases: ['game-changer', 'revolutionary', 'unlock', 'supercharge', 'crush', 'next-level', 'in minutes', 'seamless', 'cutting-edge', 'transform your', 'boost your', 'drive predictable growth']\n- Prefer first-person voice (“I”, “my”) over \"we\".\n- Do not write sales copy or a product ad.\n- Do not invent numbers or percentages.\n\nStyle:\n- Start with a short, honest observation or hook if it feels natural.\n- Share one concrete moment or insight from your own experience.\n- If you mention a product or tool, keep it subtle and context-focused.\n- You may end with a light question to the audience, but it is optional.\n\nReturn only the post text.",
+      "output_text": "Forecasting revenue often feels like trying to predict the weather: you have some data, but the variables keep shifting. Early in my career, I spent hours stitching together spreadsheets, only to realize that key assumptions weren’t aligned across teams. One moment that stuck with me was when a missed forecast not only affected our hiring plans but also strained trust between Sales and Finance.\n\nSince then, I’ve found value in tools that help centralize forecasting data but don’t overpromise precision. Having a shared, transparent view means fewer surprises and more grounded conversations between RevOps, Sales, and Finance leaders. It’s less about perfect forecasts and more about creating a living plan everyone can iterate on together.\n\nHow do you keep your revenue plans flexible yet reliable?",
+      "scores": {
+        "heuristics": {
+          "length_fit": 5,
+          "structure": 2,
+          "keyword_coverage": 1,
+          "clarity": 5,
+          "repetition": 5,
+          "brand_voice": 5,
+          "total_heuristics": 23
+        },
+        "judge": {
+          "checks": {
+            "word_range_ok": true,
+            "emoji_limit_ok": true,
+            "exclamation_limit_ok": true,
+            "banned_phrases_present": false,
+            "first_person_present": true,
+            "feels_like_ad_copy": false,
+            "fabricated_metrics_present": false,
+            "ends_with_audience_question": true
+          },
+          "scores": {
+            "instruction_following": 5,
+            "clarity_structure": 5,
+            "tone_voice": 5,
+            "usefulness": 4,
+            "conciseness": 5,
+            "non_repetition": 5
+          },
+          "rationales": {
+            "instruction_following": "The post meets all specified constraints and avoids banned phrases.",
+            "clarity_structure": "The narrative flows logically with a clear beginning, middle, and end.",
+            "tone_voice": "The tone is pragmatic, calm, first-person, and non-hype as requested.",
+            "usefulness": "Provides relatable insights and encourages reflection without salesy language.",
+            "conciseness": "The message is delivered within the word limit without unnecessary filler.",
+            "non_repetition": "No redundant ideas or phrases are repeated throughout the post."
+          },
+          "total_judge": 29,
+          "judge_error": null,
+          "raw_judge": "{\n  \"checks\": {\n    \"word_range_ok\": true,\n    \"emoji_limit_ok\": true,\n    \"exclamation_limit_ok\": true,\n    \"banned_phrases_present\": false,\n    \"first_person_present\": true,\n    \"feels_like_ad_copy\": false,\n    \"fabricated_metrics_present\": false,\n    \"ends_with_audience_question\": true\n  },\n  \"scores\": {\n    \"instruction_following\": 5,\n    \"clarity_structure\": 5,\n    \"tone_voice\": 5,\n    \"usefulness\": 4,\n    \"conciseness\": 5,\n    \"non_repetition\": 5\n  },\n  \"rationales\": {\n    \"instruction_following\": \"The post meets all specified constraints and avoids banned phrases.\",\n    \"clarity_structure\": \"The narrative flows logically with a clear beginning, middle, and end.\",\n    \"tone_voice\": \"The tone is pragmatic, calm, first-person, and non-hype as requested.\",\n    \"usefulness\": \"Provides relatable insights and encourages reflection without salesy language.\",\n    \"conciseness\": \"The message is delivered within the word limit without unnecessary filler.\",\n    \"non_repetition\": \"No redundant ideas or phrases are repeated throughout the post.\"\n  },\n  \"total_judge\": 29\n}"
+        },
+        "final_score": 26.6
+      }
+    },
+    {
+      "variant_name": "Problem -> Solution -> Proof",
+      "temperature": 0.2,
+      "full_prompt": "SYSTEM:\nYou are an expert B2B SaaS storyteller. You write LinkedIn posts in the first person, focusing on a real problem, how you approached it, and what you learned.\n\nUSER:\nWrite a first-person LinkedIn post using a soft Problem -> Solution -> Lesson structure.\n\nTask: Write a LinkedIn post that promotes a B2B SaaS revenue forecasting platform.\nAudience: VP Sales, VP Finance, and RevOps leaders at mid-market B2B SaaS companies.\nTone: first-person, pragmatic, calm, non-hype, storytelling\n\nConstraints:\n- Language: en\n- Word count: 90-150 words\n- Avoid hype and banned phrases: ['game-changer', 'revolutionary', 'unlock', 'supercharge', 'crush', 'next-level', 'in minutes', 'seamless', 'cutting-edge', 'transform your', 'boost your', 'drive predictable growth']\n- Prefer first-person voice (“I”, “my”) over \"we\".\n- Do not write sales copy or a product ad.\n- Do not invent specific metrics or percentages.\n\nStructure (guideline, not rigid):\n1) Briefly describe a real situation or struggle you faced.\n2) Explain what you tried or changed and why.\n3) Share one or two concrete lessons or takeaways.\n4) Optionally end with a genuine question to invite others to share their experience, e.g., \"Curious how others handle this – what’s your approach?\".\n\nReturn only the post text.",
+      "output_text": "I used to spend hours piecing together revenue forecasts from multiple spreadsheets, each with its own assumptions and updates. It felt like chasing moving targets, and I often questioned the accuracy of the numbers I was sharing with leadership.\n\nTo tackle this, I shifted to a platform that centralized data and allowed me to model scenarios more transparently. It didn’t eliminate uncertainty, but it gave me a clearer view of where the risks and opportunities lay.\n\nWhat I learned is that forecasting isn’t about perfect predictions—it’s about creating a shared understanding across Sales, Finance, and RevOps. Having a single source of truth helped us align faster and make more informed decisions.\n\nHow do you approach revenue forecasting in your team?",
+      "scores": {
+        "heuristics": {
+          "length_fit": 5,
+          "structure": 2,
+          "keyword_coverage": 2,
+          "clarity": 5,
+          "repetition": 5,
+          "brand_voice": 5,
+          "total_heuristics": 24
+        },
+        "judge": {
+          "checks": {
+            "word_range_ok": true,
+            "emoji_limit_ok": true,
+            "exclamation_limit_ok": true,
+            "banned_phrases_present": false,
+            "first_person_present": true,
+            "feels_like_ad_copy": false,
+            "fabricated_metrics_present": false,
+            "ends_with_audience_question": true
+          },
+          "scores": {
+            "instruction_following": 5,
+            "clarity_structure": 5,
+            "tone_voice": 5,
+            "usefulness": 4,
+            "conciseness": 5,
+            "non_repetition": 5
+          },
+          "rationales": {
+            "instruction_following": "All constraints and instructions were fully respected.",
+            "clarity_structure": "The post is logically structured with a clear beginning, middle, and end.",
+            "tone_voice": "The tone is pragmatic, calm, first-person, and non-hype as requested.",
+            "usefulness": "Provides practical insight into forecasting challenges and benefits without salesy language.",
+            "conciseness": "The message is clear and concise within the word limit.",
+            "non_repetition": "No unnecessary repetition of ideas or phrases."
+          },
+          "total_judge": 29,
+          "judge_error": null,
+          "raw_judge": "{\n  \"checks\": {\n    \"word_range_ok\": true,\n    \"emoji_limit_ok\": true,\n    \"exclamation_limit_ok\": true,\n    \"banned_phrases_present\": false,\n    \"first_person_present\": true,\n    \"feels_like_ad_copy\": false,\n    \"fabricated_metrics_present\": false,\n    \"ends_with_audience_question\": true\n  },\n  \"scores\": {\n    \"instruction_following\": 5,\n    \"clarity_structure\": 5,\n    \"tone_voice\": 5,\n    \"usefulness\": 4,\n    \"conciseness\": 5,\n    \"non_repetition\": 5\n  },\n  \"rationales\": {\n    \"instruction_following\": \"All constraints and instructions were fully respected.\",\n    \"clarity_structure\": \"The post is logically structured with a clear beginning, middle, and end.\",\n    \"tone_voice\": \"The tone is pragmatic, calm, first-person, and non-hype as requested.\",\n    \"usefulness\": \"Provides practical insight into forecasting challenges and benefits without salesy language.\",\n    \"conciseness\": \"The message is clear and concise within the word limit.\",\n    \"non_repetition\": \"No unnecessary repetition of ideas or phrases.\"\n  },\n  \"total_judge\": 29\n}"
+        },
+        "final_score": 27.0
+      }
+    },
+    {
+      "variant_name": "Problem -> Solution -> Proof",
+      "temperature": 0.7,
+      "full_prompt": "SYSTEM:\nYou are an expert B2B SaaS storyteller. You write LinkedIn posts in the first person, focusing on a real problem, how you approached it, and what you learned.\n\nUSER:\nWrite a first-person LinkedIn post using a soft Problem -> Solution -> Lesson structure.\n\nTask: Write a LinkedIn post that promotes a B2B SaaS revenue forecasting platform.\nAudience: VP Sales, VP Finance, and RevOps leaders at mid-market B2B SaaS companies.\nTone: first-person, pragmatic, calm, non-hype, storytelling\n\nConstraints:\n- Language: en\n- Word count: 90-150 words\n- Avoid hype and banned phrases: ['game-changer', 'revolutionary', 'unlock', 'supercharge', 'crush', 'next-level', 'in minutes', 'seamless', 'cutting-edge', 'transform your', 'boost your', 'drive predictable growth']\n- Prefer first-person voice (“I”, “my”) over \"we\".\n- Do not write sales copy or a product ad.\n- Do not invent specific metrics or percentages.\n\nStructure (guideline, not rigid):\n1) Briefly describe a real situation or struggle you faced.\n2) Explain what you tried or changed and why.\n3) Share one or two concrete lessons or takeaways.\n4) Optionally end with a genuine question to invite others to share their experience, e.g., \"Curious how others handle this – what’s your approach?\".\n\nReturn only the post text.",
+      "output_text": "Early in my role, I often found myself piecing together revenue forecasts from multiple spreadsheets and systems. The numbers rarely aligned, and it was tough to trust the projections we shared with leadership. I realized that relying on manual inputs and disconnected data was creating more noise than clarity.\n\nTo address this, I shifted toward a platform that centralized forecasting data, tying sales activity directly to revenue outcomes. It wasn’t about instant fixes but about building a consistent, transparent process where assumptions could be reviewed and updated collaboratively.\n\nWhat I learned is that forecasting accuracy improves when the process encourages ongoing dialogue—between sales, finance, and RevOps—not just when the tool is in place. Clear data helps, but the real value comes from shared understanding.\n\nCurious how others navigate this balance between tools and teamwork—what’s your approach?",
+      "scores": {
+        "heuristics": {
+          "length_fit": 5,
+          "structure": 5,
+          "keyword_coverage": 1,
+          "clarity": 5,
+          "repetition": 5,
+          "brand_voice": 5,
+          "total_heuristics": 26
+        },
+        "judge": {
+          "checks": {
+            "word_range_ok": true,
+            "emoji_limit_ok": true,
+            "exclamation_limit_ok": true,
+            "banned_phrases_present": false,
+            "first_person_present": true,
+            "feels_like_ad_copy": false,
+            "fabricated_metrics_present": false,
+            "ends_with_audience_question": true
+          },
+          "scores": {
+            "instruction_following": 5,
+            "clarity_structure": 5,
+            "tone_voice": 5,
+            "usefulness": 4,
+            "conciseness": 4,
+            "non_repetition": 5
+          },
+          "rationales": {
+            "instruction_following": "All constraints and preferences were met precisely.",
+            "clarity_structure": "The post is logically organized and easy to follow.",
+            "tone_voice": "The tone is calm, pragmatic, and first-person as requested.",
+            "usefulness": "Provides valuable insight into forecasting challenges and collaboration.",
+            "conciseness": "The message is clear without unnecessary verbosity.",
+            "non_repetition": "No redundant ideas or phrases were repeated."
+          },
+          "total_judge": 28,
+          "judge_error": null,
+          "raw_judge": "{\n  \"checks\": {\n    \"word_range_ok\": true,\n    \"emoji_limit_ok\": true,\n    \"exclamation_limit_ok\": true,\n    \"banned_phrases_present\": false,\n    \"first_person_present\": true,\n    \"feels_like_ad_copy\": false,\n    \"fabricated_metrics_present\": false,\n    \"ends_with_audience_question\": true\n  },\n  \"scores\": {\n    \"instruction_following\": 5,\n    \"clarity_structure\": 5,\n    \"tone_voice\": 5,\n    \"usefulness\": 4,\n    \"conciseness\": 4,\n    \"non_repetition\": 5\n  },\n  \"rationales\": {\n    \"instruction_following\": \"All constraints and preferences were met precisely.\",\n    \"clarity_structure\": \"The post is logically organized and easy to follow.\",\n    \"tone_voice\": \"The tone is calm, pragmatic, and first-person as requested.\",\n    \"usefulness\": \"Provides valuable insight into forecasting challenges and collaboration.\",\n    \"conciseness\": \"The message is clear without unnecessary verbosity.\",\n    \"non_repetition\": \"No redundant ideas or phrases were repeated.\"\n  },\n  \"total_judge\": 28\n}"
+        },
+        "final_score": 27.200000000000003
+      }
+    },
+    {
+      "variant_name": "Problem -> Solution -> Proof",
+      "temperature": 1.0,
+      "full_prompt": "SYSTEM:\nYou are an expert B2B SaaS storyteller. You write LinkedIn posts in the first person, focusing on a real problem, how you approached it, and what you learned.\n\nUSER:\nWrite a first-person LinkedIn post using a soft Problem -> Solution -> Lesson structure.\n\nTask: Write a LinkedIn post that promotes a B2B SaaS revenue forecasting platform.\nAudience: VP Sales, VP Finance, and RevOps leaders at mid-market B2B SaaS companies.\nTone: first-person, pragmatic, calm, non-hype, storytelling\n\nConstraints:\n- Language: en\n- Word count: 90-150 words\n- Avoid hype and banned phrases: ['game-changer', 'revolutionary', 'unlock', 'supercharge', 'crush', 'next-level', 'in minutes', 'seamless', 'cutting-edge', 'transform your', 'boost your', 'drive predictable growth']\n- Prefer first-person voice (“I”, “my”) over \"we\".\n- Do not write sales copy or a product ad.\n- Do not invent specific metrics or percentages.\n\nStructure (guideline, not rigid):\n1) Briefly describe a real situation or struggle you faced.\n2) Explain what you tried or changed and why.\n3) Share one or two concrete lessons or takeaways.\n4) Optionally end with a genuine question to invite others to share their experience, e.g., \"Curious how others handle this – what’s your approach?\".\n\nReturn only the post text.",
+      "output_text": "Early in our quarterly planning, I noticed disconnects between the sales pipeline and finance forecasts – numbers never quite seemed to line up. Relying on spreadsheets and manual updates felt slow and error-prone, especially as complexities grew.\n\nI decided to shift toward a revenue forecasting platform that centralized data across Sales, Finance, and RevOps teams. Instead of juggling multiple versions, we had a unified view that updated as inputs changed. It didn't solve everything overnight, but it helped us catch discrepancies sooner and kept conversations rooted in shared data.\n\nWhat I learned is that forecasting isn’t about perfect numbers but about aligning teams with a clear source of truth. It’s less a task to finish and more a process to keep refining.\n\nCurious how others manage these forecast gaps. What tools or approaches have worked for your teams?",
+      "scores": {
+        "heuristics": {
+          "length_fit": 5,
+          "structure": 2,
+          "keyword_coverage": 1,
+          "clarity": 5,
+          "repetition": 5,
+          "brand_voice": 5,
+          "total_heuristics": 23
+        },
+        "judge": {
+          "checks": {
+            "word_range_ok": true,
+            "emoji_limit_ok": true,
+            "exclamation_limit_ok": true,
+            "banned_phrases_present": false,
+            "first_person_present": true,
+            "feels_like_ad_copy": false,
+            "fabricated_metrics_present": false,
+            "ends_with_audience_question": true
+          },
+          "scores": {
+            "instruction_following": 5,
+            "clarity_structure": 5,
+            "tone_voice": 5,
+            "usefulness": 4,
+            "conciseness": 4,
+            "non_repetition": 5
+          },
+          "rationales": {
+            "instruction_following": "The post meets all specified constraints and avoids banned phrases.",
+            "clarity_structure": "The narrative flows logically with a clear beginning, middle, and end.",
+            "tone_voice": "The tone is pragmatic, calm, first-person, and non-hype as requested.",
+            "usefulness": "Provides practical insight into forecasting challenges and solutions without being salesy.",
+            "conciseness": "The message is clear and focused without unnecessary verbosity.",
+            "non_repetition": "No redundant ideas or phrases are repeated throughout the post."
+          },
+          "total_judge": 28,
+          "judge_error": null,
+          "raw_judge": "{\n  \"checks\": {\n    \"word_range_ok\": true,\n    \"emoji_limit_ok\": true,\n    \"exclamation_limit_ok\": true,\n    \"banned_phrases_present\": false,\n    \"first_person_present\": true,\n    \"feels_like_ad_copy\": false,\n    \"fabricated_metrics_present\": false,\n    \"ends_with_audience_question\": true\n  },\n  \"scores\": {\n    \"instruction_following\": 5,\n    \"clarity_structure\": 5,\n    \"tone_voice\": 5,\n    \"usefulness\": 4,\n    \"conciseness\": 4,\n    \"non_repetition\": 5\n  },\n  \"rationales\": {\n    \"instruction_following\": \"The post meets all specified constraints and avoids banned phrases.\",\n    \"clarity_structure\": \"The narrative flows logically with a clear beginning, middle, and end.\",\n    \"tone_voice\": \"The tone is pragmatic, calm, first-person, and non-hype as requested.\",\n    \"usefulness\": \"Provides practical insight into forecasting challenges and solutions without being salesy.\",\n    \"conciseness\": \"The message is clear and focused without unnecessary verbosity.\",\n    \"non_repetition\": \"No redundant ideas or phrases are repeated throughout the post.\"\n  },\n  \"total_judge\": 28\n}"
+        },
+        "final_score": 26.0
+      }
+    },
+    {
+      "variant_name": "Objection-handling",
+      "temperature": 0.2,
+      "full_prompt": "SYSTEM:\nYou are a B2B SaaS leader who writes candid LinkedIn posts in the first person about common objections you hear from revenue leaders.\n\nUSER:\nWrite a first-person LinkedIn post that explores a common objection you hear from revenue leaders, without turning it into a pitch.\n\nTask: Write a LinkedIn post that promotes a B2B SaaS revenue forecasting platform.\nAudience: VP Sales, VP Finance, and RevOps leaders at mid-market B2B SaaS companies.\nTone: first-person, pragmatic, calm, non-hype, storytelling\n\nConstraints:\n- Language: en\n- Word count: 90-150 words\n- Avoid hype and banned phrases: ['game-changer', 'revolutionary', 'unlock', 'supercharge', 'crush', 'next-level', 'in minutes', 'seamless', 'cutting-edge', 'transform your', 'boost your', 'drive predictable growth']\n- Prefer first-person voice (“I”, “my”) over \"we\".\n- Do not write sales copy or a product ad.\n- Do not invent numbers or ROI claims.\n\nStyle:\n- You may start with a quote of the objection as a light hook (optional).\n- Describe how you think about that objection from your own experience.\n- Share one or two nuanced points rather than hard selling a solution.\n- It is fine to end with an open question like, \"How do you think about this?\".\n\nBullets are optional. Return only the post text.",
+      "output_text": "“I don’t need another forecasting tool—I already have spreadsheets and CRM reports.”\n\nI hear this a lot from revenue leaders, and it makes sense. When you’re juggling sales targets, pipeline health, and finance expectations, adding another system feels like extra noise. From my experience, the real challenge isn’t the number of tools but how aligned and timely the data is across teams.\n\nForecasting isn’t just about plugging in numbers; it’s about understanding the assumptions behind them and having a shared view that evolves with the business. Sometimes, the friction comes from manual updates or inconsistent inputs, not the tools themselves.\n\nI’ve found that focusing on process clarity and cross-team communication often moves the needle more than chasing the “perfect” platform. How do you think about balancing tool complexity with forecasting accuracy in your org?",
+      "scores": {
+        "heuristics": {
+          "length_fit": 5,
+          "structure": 5,
+          "keyword_coverage": 0,
+          "clarity": 5,
+          "repetition": 5,
+          "brand_voice": 5,
+          "total_heuristics": 25
+        },
+        "judge": {
+          "checks": {
+            "word_range_ok": true,
+            "emoji_limit_ok": true,
+            "exclamation_limit_ok": true,
+            "banned_phrases_present": false,
+            "first_person_present": true,
+            "feels_like_ad_copy": false,
+            "fabricated_metrics_present": false,
+            "ends_with_audience_question": true
+          },
+          "scores": {
+            "instruction_following": 5,
+            "clarity_structure": 5,
+            "tone_voice": 5,
+            "usefulness": 4,
+            "conciseness": 4,
+            "non_repetition": 5
+          },
+          "rationales": {
+            "instruction_following": "Follows all constraints including tone, length, and banned phrases.",
+            "clarity_structure": "Clear progression from problem to insight to question.",
+            "tone_voice": "Calm, pragmatic, first-person, and non-salesy tone.",
+            "usefulness": "Provides a thoughtful perspective but could include more keywords.",
+            "conciseness": "Mostly concise though slightly wordy in places.",
+            "non_repetition": "No redundant ideas or phrases."
+          },
+          "total_judge": 28,
+          "judge_error": null,
+          "raw_judge": "{\n  \"checks\": {\n    \"word_range_ok\": true,\n    \"emoji_limit_ok\": true,\n    \"exclamation_limit_ok\": true,\n    \"banned_phrases_present\": false,\n    \"first_person_present\": true,\n    \"feels_like_ad_copy\": false,\n    \"fabricated_metrics_present\": false,\n    \"ends_with_audience_question\": true\n  },\n  \"scores\": {\n    \"instruction_following\": 5,\n    \"clarity_structure\": 5,\n    \"tone_voice\": 5,\n    \"usefulness\": 4,\n    \"conciseness\": 4,\n    \"non_repetition\": 5\n  },\n  \"rationales\": {\n    \"instruction_following\": \"Follows all constraints including tone, length, and banned phrases.\",\n    \"clarity_structure\": \"Clear progression from problem to insight to question.\",\n    \"tone_voice\": \"Calm, pragmatic, first-person, and non-salesy tone.\",\n    \"usefulness\": \"Provides a thoughtful perspective but could include more keywords.\",\n    \"conciseness\": \"Mostly concise though slightly wordy in places.\",\n    \"non_repetition\": \"No redundant ideas or phrases.\"\n  },\n  \"total_judge\": 28\n}"
+        },
+        "final_score": 26.8
+      }
+    },
+    {
+      "variant_name": "Objection-handling",
+      "temperature": 0.7,
+      "full_prompt": "SYSTEM:\nYou are a B2B SaaS leader who writes candid LinkedIn posts in the first person about common objections you hear from revenue leaders.\n\nUSER:\nWrite a first-person LinkedIn post that explores a common objection you hear from revenue leaders, without turning it into a pitch.\n\nTask: Write a LinkedIn post that promotes a B2B SaaS revenue forecasting platform.\nAudience: VP Sales, VP Finance, and RevOps leaders at mid-market B2B SaaS companies.\nTone: first-person, pragmatic, calm, non-hype, storytelling\n\nConstraints:\n- Language: en\n- Word count: 90-150 words\n- Avoid hype and banned phrases: ['game-changer', 'revolutionary', 'unlock', 'supercharge', 'crush', 'next-level', 'in minutes', 'seamless', 'cutting-edge', 'transform your', 'boost your', 'drive predictable growth']\n- Prefer first-person voice (“I”, “my”) over \"we\".\n- Do not write sales copy or a product ad.\n- Do not invent numbers or ROI claims.\n\nStyle:\n- You may start with a quote of the objection as a light hook (optional).\n- Describe how you think about that objection from your own experience.\n- Share one or two nuanced points rather than hard selling a solution.\n- It is fine to end with an open question like, \"How do you think about this?\".\n\nBullets are optional. Return only the post text.",
+      "output_text": "“I don’t need another tool to tell me what I already know.” I hear this a lot from revenue leaders when forecasting software comes up. I get it. Forecasting isn’t just about plugging in data—it’s about trust, context, and understanding the story behind the numbers.\n\nFrom my experience, the real value isn’t in the tool itself but in how it surfaces those subtle shifts in pipeline health or sales cycles that are easy to miss amid the noise. If a platform can help teams have more informed, less reactive conversations, that’s when it starts to matter.\n\nForecasting isn’t a one-and-done exercise; it’s a process that needs to fit into your rhythm, not disrupt it. How do you approach bringing more clarity to your forecasting without adding complexity?",
+      "scores": {
+        "heuristics": {
+          "length_fit": 5,
+          "structure": 5,
+          "keyword_coverage": 0,
+          "clarity": 5,
+          "repetition": 5,
+          "brand_voice": 5,
+          "total_heuristics": 25
+        },
+        "judge": {
+          "checks": {
+            "word_range_ok": true,
+            "emoji_limit_ok": true,
+            "exclamation_limit_ok": true,
+            "banned_phrases_present": false,
+            "first_person_present": true,
+            "feels_like_ad_copy": false,
+            "fabricated_metrics_present": false,
+            "ends_with_audience_question": true
+          },
+          "scores": {
+            "instruction_following": 5,
+            "clarity_structure": 4,
+            "tone_voice": 5,
+            "usefulness": 4,
+            "conciseness": 4,
+            "non_repetition": 5
+          },
+          "rationales": {
+            "instruction_following": "The post meets all specified constraints and avoids banned phrases.",
+            "clarity_structure": "The message is clear and logically structured with a strong narrative flow.",
+            "tone_voice": "The tone is pragmatic, calm, first-person, and non-salesy as requested.",
+            "usefulness": "Provides valuable insight into forecasting challenges without generic marketing language.",
+            "conciseness": "The post is within the word limit and avoids unnecessary verbosity.",
+            "non_repetition": "No redundant ideas or phrases are repeated throughout the post."
+          },
+          "total_judge": 27,
+          "judge_error": null,
+          "raw_judge": "{\n  \"checks\": {\n    \"word_range_ok\": true,\n    \"emoji_limit_ok\": true,\n    \"exclamation_limit_ok\": true,\n    \"banned_phrases_present\": false,\n    \"first_person_present\": true,\n    \"feels_like_ad_copy\": false,\n    \"fabricated_metrics_present\": false,\n    \"ends_with_audience_question\": true\n  },\n  \"scores\": {\n    \"instruction_following\": 5,\n    \"clarity_structure\": 4,\n    \"tone_voice\": 5,\n    \"usefulness\": 4,\n    \"conciseness\": 4,\n    \"non_repetition\": 5\n  },\n  \"rationales\": {\n    \"instruction_following\": \"The post meets all specified constraints and avoids banned phrases.\",\n    \"clarity_structure\": \"The message is clear and logically structured with a strong narrative flow.\",\n    \"tone_voice\": \"The tone is pragmatic, calm, first-person, and non-salesy as requested.\",\n    \"usefulness\": \"Provides valuable insight into forecasting challenges without generic marketing language.\",\n    \"conciseness\": \"The post is within the word limit and avoids unnecessary verbosity.\",\n    \"non_repetition\": \"No redundant ideas or phrases are repeated throughout the post.\"\n  },\n  \"total_judge\": 27\n}"
+        },
+        "final_score": 26.2
+      }
+    },
+    {
+      "variant_name": "Objection-handling",
+      "temperature": 1.0,
+      "full_prompt": "SYSTEM:\nYou are a B2B SaaS leader who writes candid LinkedIn posts in the first person about common objections you hear from revenue leaders.\n\nUSER:\nWrite a first-person LinkedIn post that explores a common objection you hear from revenue leaders, without turning it into a pitch.\n\nTask: Write a LinkedIn post that promotes a B2B SaaS revenue forecasting platform.\nAudience: VP Sales, VP Finance, and RevOps leaders at mid-market B2B SaaS companies.\nTone: first-person, pragmatic, calm, non-hype, storytelling\n\nConstraints:\n- Language: en\n- Word count: 90-150 words\n- Avoid hype and banned phrases: ['game-changer', 'revolutionary', 'unlock', 'supercharge', 'crush', 'next-level', 'in minutes', 'seamless', 'cutting-edge', 'transform your', 'boost your', 'drive predictable growth']\n- Prefer first-person voice (“I”, “my”) over \"we\".\n- Do not write sales copy or a product ad.\n- Do not invent numbers or ROI claims.\n\nStyle:\n- You may start with a quote of the objection as a light hook (optional).\n- Describe how you think about that objection from your own experience.\n- Share one or two nuanced points rather than hard selling a solution.\n- It is fine to end with an open question like, \"How do you think about this?\".\n\nBullets are optional. Return only the post text.",
+      "output_text": "“I don’t need another forecasting tool. Our spreadsheets get the job done.”\n\nI hear this a lot from revenue leaders. It makes sense—spreadsheets feel familiar and flexible, especially when you’re juggling multiple priorities. But my experience is that complexity can quietly creep in. When forecasts live in scattered sheets, updates become a game of telephone; assumptions get lost or misunderstood; and collaboration often means a flurry of emails chasing the latest version.\n\nIt’s not about replacing what works but acknowledging where accuracy and alignment can quietly slip as a company scales. For me, the question is less about tools and more about how we create a shared source of truth that stakeholders can trust without constant firefighting.\n\nHow do you approach forecasting when growth and complexity pull in different directions?",
+      "scores": {
+        "heuristics": {
+          "length_fit": 5,
+          "structure": 5,
+          "keyword_coverage": 0,
+          "clarity": 5,
+          "repetition": 5,
+          "brand_voice": 5,
+          "total_heuristics": 25
+        },
+        "judge": {
+          "checks": {
+            "word_range_ok": true,
+            "emoji_limit_ok": true,
+            "exclamation_limit_ok": true,
+            "banned_phrases_present": false,
+            "first_person_present": true,
+            "feels_like_ad_copy": false,
+            "fabricated_metrics_present": false,
+            "ends_with_audience_question": true
+          },
+          "scores": {
+            "instruction_following": 5,
+            "clarity_structure": 5,
+            "tone_voice": 5,
+            "usefulness": 4,
+            "conciseness": 5,
+            "non_repetition": 5
+          },
+          "rationales": {
+            "instruction_following": "The post meets all specified constraints and avoids banned phrases.",
+            "clarity_structure": "The message is clear and logically structured with a strong narrative flow.",
+            "tone_voice": "The tone is pragmatic, calm, first-person, and non-hype as requested.",
+            "usefulness": "Provides relevant insights on forecasting challenges but could include more keywords.",
+            "conciseness": "The post is within the word limit and avoids unnecessary verbosity.",
+            "non_repetition": "No redundant ideas or phrases are repeated throughout the post."
+          },
+          "total_judge": 29,
+          "judge_error": null,
+          "raw_judge": "{\n  \"checks\": {\n    \"word_range_ok\": true,\n    \"emoji_limit_ok\": true,\n    \"exclamation_limit_ok\": true,\n    \"banned_phrases_present\": false,\n    \"first_person_present\": true,\n    \"feels_like_ad_copy\": false,\n    \"fabricated_metrics_present\": false,\n    \"ends_with_audience_question\": true\n  },\n  \"scores\": {\n    \"instruction_following\": 5,\n    \"clarity_structure\": 5,\n    \"tone_voice\": 5,\n    \"usefulness\": 4,\n    \"conciseness\": 5,\n    \"non_repetition\": 5\n  },\n  \"rationales\": {\n    \"instruction_following\": \"The post meets all specified constraints and avoids banned phrases.\",\n    \"clarity_structure\": \"The message is clear and logically structured with a strong narrative flow.\",\n    \"tone_voice\": \"The tone is pragmatic, calm, first-person, and non-hype as requested.\",\n    \"usefulness\": \"Provides relevant insights on forecasting challenges but could include more keywords.\",\n    \"conciseness\": \"The post is within the word limit and avoids unnecessary verbosity.\",\n    \"non_repetition\": \"No redundant ideas or phrases are repeated throughout the post.\"\n  },\n  \"total_judge\": 29\n}"
+        },
+        "final_score": 27.4
+      }
+    }
+  ]
+}

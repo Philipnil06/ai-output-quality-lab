@@ -1,0 +1,7 @@
+pipeline visibility
+forecast accuracy
+revops
+scenario planning
+single source of truth
+sales and finance alignment
+

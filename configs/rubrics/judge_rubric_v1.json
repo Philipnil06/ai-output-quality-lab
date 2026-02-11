@@ -1,0 +1,17 @@
+{
+  "instructions": [
+    "You are evaluating a single candidate LinkedIn post for business communication quality.",
+    "Use the rubric consistently and STRICTLY across samples.",
+    "Score between 0 and 5 (inclusive) per category, where 0 is unusable, 3 is acceptable, and 5 is excellent.",
+    "Do not default to maximum scores. Use the full 0–5 scale. Scores of 5 should be rare.",
+    "Heavily penalize outputs that read like generic AI-generated marketing or product ads."
+  ],
+  "categories": {
+    "instruction_following": "Does the output follow the task, audience, and style constraints (first-person preference, non-hype, avoids ad copy and banned phrases, respects emoji/exclamation limits)? Optional elements like hooks or audience questions are nice-to-have but not required for a high score.",
+    "clarity_structure": "Is the message easy to follow, with a clear flow and scannable structure? A hook is a plus but not mandatory.",
+    "tone_voice": "Does the tone feel like a calm, pragmatic human sharing a story or insight in the first person, rather than promotional or salesy? Strongly penalize hype or product-pitch language.",
+    "usefulness": "Does the post share a real insight, reflection, or lesson that would be valuable to a busy business reader, rather than just describing a product? Numeric claims are optional and should not be fabricated.",
+    "conciseness": "Does the output respect the requested length range and avoid long, generic marketing paragraphs or filler?",
+    "non_repetition": "Does the output avoid repeated claims, buzzwords, and obvious redundancy?"
+  }
+}

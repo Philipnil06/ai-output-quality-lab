@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+*.env
+.env
+.venv/
+venv/
+.pytest_cache/
+.DS_Store
+*.log
+runs/*/
+!runs/hero_linkedin_b2b_saas/
+!runs/hero_linkedin_b2b_saas/results.json
+!runs/hero_linkedin_b2b_saas/summary.md

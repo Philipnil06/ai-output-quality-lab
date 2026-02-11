@@ -1,0 +1,33 @@
+{
+  "name": "linkedin_b2b_saas",
+  "task": "Write a LinkedIn post that promotes a B2B SaaS revenue forecasting platform.",
+  "audience": "VP Sales, VP Finance, and RevOps leaders at mid-market B2B SaaS companies.",
+  "tone": "first-person, pragmatic, calm, non-hype, storytelling",
+  "constraints": {
+    "language": "en",
+    "min_words": 90,
+    "max_words": 150,
+    "must_include": [],
+    "banned_phrases": [
+      "game-changer",
+      "revolutionary",
+      "unlock",
+      "supercharge",
+      "crush",
+      "next-level",
+      "in minutes",
+      "seamless",
+      "cutting-edge",
+      "transform your",
+      "boost your",
+      "drive predictable growth"
+    ],
+    "max_exclamation_marks": 1,
+    "max_emojis": 0,
+    "prefer_first_person": true,
+    "avoid_salesy_ad_copy": true,
+    "prefer_question_ending": true,
+    "no_fabricated_metrics": true
+  },
+  "keywords_file": "configs/keywords/linkedin_keywords.txt"
+}
